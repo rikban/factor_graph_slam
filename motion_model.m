@@ -8,11 +8,18 @@ v_l = 2;
 computeTrajectory(v_r, v_l);
 % Ask about ASSERT_EQ equivalent
 
+%% Wheels opposed
+close all;
+clear all;
+v_r = -2;
+v_l = 2;
+
+computeTrajectory(v_r, v_l);
 %% Right wheel faster
 close all;
 clear all;
-v_r = 2;
-v_l = 5;
+v_r = 5;
+v_l = 2;
 
 computeTrajectory(v_r, v_l);
 
@@ -31,7 +38,7 @@ f = @(t,z) [omega;
      v_c*cos(z(1));
      v_c*sin(z(1))];
 
-[t, za] = ode45(f,[0 15],[0 0 0]); 
+[t, za] = ode45(f,[0 5],[0 0 0]); 
 
 figure(1);
 plot(t,wrapTo2Pi(za(:,1))); hold on;
