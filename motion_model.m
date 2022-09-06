@@ -14,14 +14,17 @@ close all;
 clear all;
 v_r = -2;
 v_l = 2;
+
 ic = [0,0,0];
 
 computeTrajectory(v_r, v_l, ic);
+
 %% Right wheel faster
 close all;
 clear all;
 v_r = 5;
 v_l = 2;
+
 ic = [0,0,0];
 
 computeTrajectory(v_r, v_l, ic);
@@ -57,5 +60,5 @@ function [] = computeTrajectory(v_r,v_l, ic)
     xlabel("x (m)");
     ylabel("y (m)");
     zlabel("\theta (rad)");
-    title('Solution curve')
+    title('Solution curve');
 end
