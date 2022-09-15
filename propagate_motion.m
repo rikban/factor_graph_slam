@@ -7,7 +7,7 @@
 %       wheel
 %       params - [nx1 vector] Diameter 
 %   Outputs
-%       J - [3x1] Propagated state vector
+%       x - [3x1] Propagated state vector
 function[x] = propagate_motion(delta_t, x_prev, control_inputs, params)
 
     v_l = control_inputs(1);

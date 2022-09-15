@@ -1,11 +1,13 @@
 % Make state jacobian mtarix for roomba model noise propogation
 %   Inputs:
-%       vc - [float] forward velocity of the vehicle in m
-%       w - [float] angular velocity of the vehicle in rad/s
-%       theta - [float] Orientation between ego and world frame in rad
-%       dt - time interval between propogation (seconds) 
+%       delta_t - [float] Time interval to propagate forward by
+%       x_prev - [3x1 vector] Previous state - theta, x, and y
+%       control_inputs - [2x1 vector] Linear speed of left wheel and right
+%       wheel
+%       params - [nx1 vector] Diameter (m)
 %   Outputs
-%       J - [3x3] Jacobian matrix of the state transition
+%       x - [3x1] Propagated state vector
+%       P - [3x3 vector] Propagated noise matrix
 
 function [x, P] = propagate(delta_t, x_prev, P_prev, control_inputs, params)
 

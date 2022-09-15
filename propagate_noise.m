@@ -6,7 +6,7 @@
 %       wheel
 %       params - [nx1 vector] Diameter 
 %   Outputs
-%       J - [3x3 vector] Propagated noise matrix
+%       P - [3x3 vector] Propagated noise matrix
 
 function[P] = propagate_noise(delta_t, P_prev, x_prev, control_inputs, params)
     
