@@ -1,0 +1,12 @@
+%% Unit test
+delta_t = 0.1;
+x_prev = [0;0;0];
+control_inputs = [2;1];
+P_prev = eye(3);
+params = [1];  % Only parameter is diameter for now
+
+for i = 0:2
+ [x, P] =  propagate(delta_t, x_prev, P_prev, control_inputs, params);
+ x = x_prev;
+ P = P_prev
+end
