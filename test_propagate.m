@@ -1,6 +1,8 @@
 %% Integration test
+close all;
+clear all;
 delta_t = 0.1;
-x_prev = [0;0;0];
+x_prev = [5;5;5];
 control_inputs = [3;1];
 P_prev = eye(3);
 params = [1];  % Only parameter is diameter for now

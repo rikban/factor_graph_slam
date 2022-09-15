@@ -12,7 +12,7 @@ function[P] = propagate_noise(delta_t, P_prev, x_prev, control_inputs, params)
     
     v_l = control_inputs(1);
     v_r = control_inputs(2);
-    v_c = sum(control_inputs);
+    v_c = 0.5*sum(control_inputs);
     diameter = params(1);
     w = ((v_r - v_l)/diameter);
     J = zeros(3);
