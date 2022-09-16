@@ -17,7 +17,7 @@ function[x] = propagate_motion(delta_t, x_prev, control_inputs, params)
     w = ((v_r - v_l)/diameter);
 
     if abs(w) < 1e-5
-        x = x_prev + [0; v_c*delta_t; 0];
+        x = x_prev + [0; v_c*delta_t*cos(x_prev(1)); v_c*delta_t*sin(x_prev(1))];
     else
         x = x_prev + [w*delta_t;
                     (v_c/w)*sin(w*delta_t + x_prev(1));
