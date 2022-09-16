@@ -12,11 +12,18 @@ function[x] = propagate_motion(delta_t, x_prev, control_inputs, params)
 
     v_l = control_inputs(1);
     v_r = control_inputs(2);
-    v_c = sum(control_inputs);
+    v_c = sum(control_inputs)/2;
     diameter = params(1);
     w = ((v_r - v_l)/diameter);
 
-    x = x_prev + [w*delta_t;
-                (v_c/w)*sin(w*delta_t);
-                (v_c/w)*cos(w*delta_t)];
+    if abs(w) < 1e-5
+        x = x_prev + [0; v_c*delta_t; 0];
+    else
+        x = x_prev + [w*delta_t;
+                    (v_c/w)*sin(w*delta_t + x_prev(1));
+                    -(v_c/w)*cos(w*delta_t + x_prev(1))];
+    end
+    if w < 1e-5
+
+    end
 end
